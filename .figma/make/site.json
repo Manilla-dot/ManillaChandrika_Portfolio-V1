@@ -1,0 +1,10 @@
+{
+  "description": "A polished product audit and roadmap for Alice Blue’s ASK ANT, helping product teams assess user experience, prioritize improvements, track metrics, and access audit files.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
