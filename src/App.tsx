@@ -580,8 +580,22 @@ function Timeline() {
 function About() {
   return (
     <Section id="about" n="06" eyebrow="About" title="A product manager building products with a design perspective.">
-      <div className="grid gap-12 lg:grid-cols-[1fr_2fr]">
-        <div className="reveal max-w-[640px] space-y-6 text-[18px] leading-[1.7] text-ink-2">
+      <div className="grid items-start gap-12 lg:grid-cols-[minmax(260px,0.85fr)_minmax(0,1.65fr)] lg:gap-16">
+        <figure className="reveal relative mx-auto w-full max-w-[420px] lg:mx-0">
+          <div className="absolute -bottom-3 -right-3 h-full w-full rounded-lg border border-sage/20 bg-sage-soft" aria-hidden="true" />
+          <div className="relative aspect-[3/4] overflow-hidden rounded-lg border border-line bg-paper-2 shadow-[0_24px_50px_-28px_rgba(18,22,20,.45)]">
+            <img
+              src={new URL("./assets/about-portrait.png", import.meta.url).href}
+              alt="Manilla Chandrika"
+              className="h-full w-full object-cover object-center"
+            />
+          </div>
+          <figcaption className="relative mt-5 flex items-center gap-3 font-mono text-[10px] uppercase tracking-[.14em] text-ink-3">
+            <span className="h-px w-8 bg-sage" />
+            Product · Design · Fintech
+          </figcaption>
+        </figure>
+        <div className="reveal max-w-[680px] space-y-6 text-[18px] leading-[1.7] text-ink-2">
           <p>I started in design, but as I worked more closely with product decisions, I became increasingly focused on strategy: <span className="font-serif italic text-ink">Why does this problem exist? What is the user really trying to do? What should we build first and why?</span></p>
           <p>That curiosity evolved into product management, where I lead product decisions end-to-end — from discovery through delivery and measurement.</p>
           <p className="text-ink">Today I combine:</p>
