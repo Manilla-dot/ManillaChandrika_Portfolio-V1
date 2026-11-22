@@ -83,24 +83,6 @@ const CASES: Case[] = [
     highlights: ["Feedback analysis", "Usability insights", "Problem identification", "Feature opportunity mapping"],
     context: "This project examined customer perception, functional usability and feature discoverability across the redesigned Alice Blue trading experience.",
   },
-  {
-    slug: "trading",
-    name: "Trading Experience",
-    tags: ["Product Design", "UX", "User Research"],
-    problem: "Led simplification of complex trading experiences while improving discoverability, decision-making and execution efficiency.",
-    role: "Experience lead · Research to architecture",
-    highlights: ["User needs research", "Experience architecture", "Feature discovery optimisation", "Product metrics"],
-    context: "The trading platform serves users from first-time equity buyers to active derivatives traders, all within a single interface.",
-  },
-  {
-    slug: "pay-in-out",
-    name: "Pay-in / Pay-out Experience",
-    tags: ["Product Strategy", "User Research", "Fintech"],
-    problem: "Owned the analysis and redesign of fund addition and withdrawal journeys to reduce friction, build trust and eliminate unnecessary steps.",
-    role: "Journey owner · Analysis & redesign",
-    highlights: ["Trust-led flow design", "Step elimination", "Payment-method strategy"],
-    context: "Adding and withdrawing funds is the most trust-sensitive moment on the platform — money leaves a user's bank and must be visibly safe.",
-  },
 ];
 
 const PM_FLOW = ["Problem", "Research", "Insight", "Opportunity", "Hypothesis", "Solution", "Measurement", "Learning"];
@@ -599,7 +581,6 @@ function About() {
   return (
     <Section id="about" n="06" eyebrow="About" title="A product manager building products with a design perspective.">
       <div className="grid gap-12 lg:grid-cols-[1fr_2fr]">
-        <div className="reveal"><Placeholder label="[Insert portrait]" ratio="aspect-[4/5]" dense /></div>
         <div className="reveal max-w-[640px] space-y-6 text-[18px] leading-[1.7] text-ink-2">
           <p>I started in design, but as I worked more closely with product decisions, I became increasingly focused on strategy: <span className="font-serif italic text-ink">Why does this problem exist? What is the user really trying to do? What should we build first and why?</span></p>
           <p>That curiosity evolved into product management, where I lead product decisions end-to-end — from discovery through delivery and measurement.</p>
