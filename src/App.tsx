@@ -533,7 +533,7 @@ function Thinking() {
       id="approach"
       n="03"
       eyebrow="Approach"
-      title="How I Approach Product & Design Strategy"
+      title="My Approach to Building Better Products"
       sub="Combining product thinking, data analysis, design execution and AI-assisted workflows to turn user problems into practical product solutions."
       tone="alt"
     >
@@ -561,9 +561,6 @@ function Thinking() {
       <div className="reveal mt-14 rounded-lg border border-dashed border-line bg-paper p-6 sm:p-8">
         <p className="mb-6 font-mono text-[11px] uppercase tracking-[.14em] text-ink-3">The working loop</p>
         <FlowChain steps={["User Problem", "Research & Data", "Product Insight", "Strategy & Specs", "Prototype", "Validate & Evaluate", "Iterate", "Learn & Improve"]} />
-        <p className="mt-7 border-t border-line pt-5 font-serif text-[16px] italic leading-relaxed text-ink-2">
-          AI supports the process; product judgement, user understanding and validation guide the decisions.
-        </p>
       </div>
     </Section>
   );
