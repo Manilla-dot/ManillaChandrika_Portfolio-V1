@@ -267,35 +267,32 @@ function SystemDiagram() {
     return () => clearInterval(t);
   }, []);
   return (
-    <div className="relative rounded-xl border border-line bg-white p-6 sm:p-8">
-      <div className="mb-6 flex items-center justify-between">
-        <span className="font-mono text-[11px] uppercase tracking-[.14em] text-ink-3">Product system · v1</span>
-        <Tag tone="status">Live model</Tag>
+    <div className="relative border-y border-line">
+      <div className="grid gap-5 py-6 sm:grid-cols-[1fr_auto] sm:items-end sm:py-8">
+        <div>
+          <p className="font-mono text-[10px] uppercase tracking-[.16em] text-sage">How I move from ambiguity to impact</p>
+          <p className="mt-3 max-w-[390px] font-serif text-[26px] leading-[1.15] tracking-[-.015em] text-ink">
+            A repeatable way to make better product decisions.
+          </p>
+        </div>
+        <span className="font-mono text-[10px] uppercase tracking-[.14em] text-ink-3">Problem → Impact</span>
       </div>
-      <div className="relative">
-        <div className="absolute left-[11px] top-3 bottom-3 w-px bg-line" />
-        <div className="absolute left-[11px] top-3 w-px bg-sage transition-all duration-500" style={{ height: `calc(${(a / (SYS.length - 1)) * 100}% - 24px * ${a / (SYS.length - 1)})` }} />
+      <div className="border-t border-line">
         {SYS.map((s, i) => (
-          <button key={s.k} onMouseEnter={() => setA(i)} onFocus={() => setA(i)} className="relative flex w-full gap-5 py-3 text-left">
-            <span className={`relative z-10 mt-0.5 grid size-[23px] shrink-0 place-items-center rounded-full border bg-white transition-colors duration-300 ${i <= a ? "border-sage" : "border-line"}`}>
-              <span className={`size-[7px] rounded-full transition-all duration-300 ${i === a ? "bg-sage scale-125" : i < a ? "bg-sage/60" : "bg-line"}`} />
-            </span>
-            <span className="flex-1">
-              <span className="flex items-baseline justify-between gap-3">
-                <span className={`text-[17px] font-medium tracking-tight transition-colors ${i === a ? "text-ink" : "text-ink-3"}`}>{s.k}</span>
-                <span className="font-mono text-[11px] text-ink-3">0{i + 1}</span>
-              </span>
-              <span className={`grid transition-all duration-300 ${i === a ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
-                <span className="overflow-hidden">
-                  <span className="block pt-1 font-serif text-[15px] italic text-sage">{s.q}</span>
-                  <span className="block pt-1 text-[14px] leading-relaxed text-ink-2">{s.d}</span>
-                </span>
-              </span>
-            </span>
-          </button>
+          <div
+            key={s.k}
+            className={`grid grid-cols-[38px_1fr] gap-3 border-b border-line px-2 py-4 transition-colors duration-500 last:border-b-0 sm:grid-cols-[46px_110px_1fr] sm:gap-4 ${i === a ? "bg-sage-soft/70" : ""}`}
+          >
+            <span className={`pt-0.5 font-mono text-[10px] transition-colors duration-500 ${i === a ? "text-sage" : "text-ink-3"}`}>0{i + 1}</span>
+            <h3 className="text-[15px] font-medium tracking-tight text-ink">{s.k}</h3>
+            <div className="col-start-2 sm:col-start-3">
+              <p className="font-serif text-[14.5px] italic leading-snug text-sage">{s.q}</p>
+              <p className="mt-1 text-[12.5px] leading-relaxed text-ink-2">{s.d}</p>
+            </div>
+          </div>
         ))}
       </div>
-      <p className="mt-5 border-t border-line pt-4 font-mono text-[11px] text-ink-3">Example shown: eKYC → first investment</p>
+      <p className="py-4 font-mono text-[10px] uppercase tracking-[.12em] text-ink-3">Illustrated through the eKYC → first investment journey</p>
     </div>
   );
 }
