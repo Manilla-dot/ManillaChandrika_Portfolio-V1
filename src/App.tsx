@@ -471,27 +471,99 @@ function ThinkingCard({ i, t, q, pts }: { i: number; t: string; q: string; pts: 
 }
 
 function Thinking() {
+  const stages = [
+    {
+      title: "Discovery & Research",
+      principle: "Understand the problem before deciding what to build.",
+      points: [
+        "Use ChatGPT, Gemini and Perplexity to explore user problems, market trends and competitor experiences.",
+        "Analyse customer feedback, product reviews and existing workflows to identify recurring friction.",
+        "Use Microsoft Excel and Copilot to organise feedback, identify patterns and interpret available data.",
+      ],
+    },
+    {
+      title: "Specs & Strategy",
+      principle: "Translate research into clear product direction and execution priorities.",
+      points: [
+        "Define problem statements, user needs, product goals and expected outcomes.",
+        "Structure feature requirements, user journeys, use cases and acceptance criteria using ChatGPT and Notion.",
+        "Prioritise opportunities based on user impact, business value, feasibility and available resources.",
+      ],
+    },
+    {
+      title: "Rapid Prototyping & Ops",
+      principle: "Move from ideas to tangible experiences and faster feedback.",
+      points: [
+        "Use Figma and Figma Make to explore interface concepts and generate design variations.",
+        "Use Google Stitch for early UI exploration and Lovable for interactive prototypes.",
+        "Use ChatGPT and Notion to structure workflows, document decisions and organise design-to-development handoffs.",
+      ],
+    },
+    {
+      title: "Core Tech Fluency",
+      principle: "Understand how product decisions translate into working experiences.",
+      points: [
+        "Explore how APIs, integrations, data flows and system dependencies affect product functionality.",
+        "Use AI tools to understand technical concepts, review implementation approaches and identify edge cases.",
+        "Collaborate with developers to clarify feasibility, dependencies and implementation constraints.",
+      ],
+    },
+    {
+      title: "Metrics & Evals",
+      principle: "Evaluate whether the solution addresses the intended problem.",
+      points: [
+        "Use Excel and Copilot to organise product data, analyse trends and identify funnel drop-offs.",
+        "Define relevant success metrics, adoption indicators and experience-quality checks.",
+        "Compare expected outcomes with available evidence, capture feedback and identify areas for iteration.",
+      ],
+    },
+    {
+      title: "Risk & Governance",
+      principle: "Make product execution more reliable, responsible and measurable.",
+      points: [
+        "Review usability, accessibility, data privacy and potential failure scenarios.",
+        "Use structured checklists and Notion documentation to track assumptions, dependencies, decisions and open issues.",
+        "Validate AI-generated outputs and prototypes before treating them as product requirements or implementation-ready solutions.",
+      ],
+    },
+  ] as const;
+
   return (
-    <Section id="approach" n="03" eyebrow="Approach" title="How I Approach Product Problems" tone="alt">
-      <div className="grid items-start gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {THINK.map(([t, q, pts], i) => (
-          <article key={t} className="reveal rounded-lg border border-line bg-white p-6">
+    <Section
+      id="approach"
+      n="03"
+      eyebrow="Approach"
+      title="How I Approach Product & Design Strategy"
+      sub="Combining product thinking, data analysis, design execution and AI-assisted workflows to turn user problems into practical product solutions."
+      tone="alt"
+    >
+      <div className="grid items-stretch gap-5 lg:grid-cols-2">
+        {stages.map((stage, i) => (
+          <article key={stage.title} className="reveal flex flex-col rounded-lg border border-line bg-white p-6 sm:p-7">
             <div className="flex items-start gap-5">
-              <span className="pt-1 font-mono text-[12px] text-sage">0{i + 1}</span>
+              <span className="pt-1 font-mono text-[12px] text-sage">{String(i + 1).padStart(2, "0")}</span>
               <div className="flex-1">
-                <h3 className="text-[19px] font-medium tracking-tight">{t}</h3>
-                <p className="mt-1.5 font-serif text-[16.5px] italic leading-snug text-ink-2">{q}</p>
+                <h3 className="text-[20px] font-medium tracking-tight">{stage.title}</h3>
+                <p className="mt-2 font-serif text-[16.5px] italic leading-snug text-sage">{stage.principle}</p>
               </div>
             </div>
-            <ul className="mt-5 space-y-2.5 border-t border-line pt-5 pl-[34px]">
-              {pts.map((p) => <li key={p} className="text-[14.5px] text-ink-2 before:mr-3 before:text-sage before:content-['—']">{p}</li>)}
+            <ul className="mt-6 flex-1 space-y-3 border-t border-line pt-5 pl-[34px]">
+              {stage.points.map((point) => (
+                <li key={point} className="grid grid-cols-[12px_1fr] gap-2 text-[14.5px] leading-relaxed text-ink-2">
+                  <span className="text-sage">—</span>
+                  <span>{point}</span>
+                </li>
+              ))}
             </ul>
           </article>
         ))}
       </div>
-      <div className="reveal mt-14 rounded-lg border border-dashed border-line p-6 sm:p-8">
-        <p className="mb-5 font-mono text-[11px] uppercase tracking-[.14em] text-ink-3">The loop</p>
-        <FlowChain steps={["User Problem", "Research", "Insight", "Opportunity", "Hypothesis", "Solution", "Metric", "Learning"]} />
+      <div className="reveal mt-14 rounded-lg border border-dashed border-line bg-paper p-6 sm:p-8">
+        <p className="mb-6 font-mono text-[11px] uppercase tracking-[.14em] text-ink-3">The working loop</p>
+        <FlowChain steps={["User Problem", "Research & Data", "Product Insight", "Strategy & Specs", "Prototype", "Validate & Evaluate", "Iterate", "Learn & Improve"]} />
+        <p className="mt-7 border-t border-line pt-5 font-serif text-[16px] italic leading-relaxed text-ink-2">
+          AI supports the process; product judgement, user understanding and validation guide the decisions.
+        </p>
       </div>
     </Section>
   );
