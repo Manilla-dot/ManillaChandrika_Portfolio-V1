@@ -569,6 +569,45 @@ function Thinking() {
   );
 }
 
+const AI_WORKFLOWS = [
+  ["Research & synthesis", ["ChatGPT", "Gemini", "Perplexity"]],
+  ["Data analysis", ["Microsoft Excel", "Copilot"]],
+  ["Product documentation", ["Notion", "ChatGPT"]],
+  ["UI exploration", ["Google Stitch", "Figma"]],
+  ["Interactive prototyping", ["Lovable", "Figma Make"]],
+  ["Evaluation & iteration", ["Excel", "ChatGPT", "Notion"]],
+] as const;
+
+function AITools() {
+  return (
+    <Section id="tools" n="04" eyebrow="AI workflow" title="AI Tools I Use to Think, Build & Evaluate" tone="dark">
+      <div className="reveal overflow-hidden rounded-lg border border-paper/15">
+        <div className="hidden grid-cols-[0.9fr_1.4fr] border-b border-paper/15 px-6 py-4 font-mono text-[11px] uppercase tracking-[.12em] text-paper/45 sm:grid">
+          <span>Workflow</span>
+          <span>Tools</span>
+        </div>
+        <div className="divide-y divide-paper/10">
+          {AI_WORKFLOWS.map(([workflow, tools], i) => (
+            <div key={workflow} className="grid gap-4 px-6 py-5 sm:grid-cols-[0.9fr_1.4fr] sm:items-center">
+              <div className="flex items-baseline gap-4">
+                <span className="font-mono text-[10px] text-sage-2">{String(i + 1).padStart(2, "0")}</span>
+                <h3 className="text-[16px] font-medium tracking-tight text-paper">{workflow}</h3>
+              </div>
+              <div className="flex flex-wrap gap-2 pl-8 sm:pl-0">
+                {tools.map((tool) => (
+                  <span key={tool} className="rounded-full border border-paper/15 bg-paper/5 px-3 py-1.5 text-[13px] text-paper/75">
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Section>
+  );
+}
+
 const KPI = [
   ["Activation drop-off", "Funnel analytics", "Completion rate", "< 70%", "Investigate and redesign friction points", "Break the funnel by step and device; pair with session recordings to locate the exact step losing users."],
   ["Feature adoption", "Product analytics", "Usage %", "< 15%", "Improve discoverability or value communication", "Check whether users can't find it or don't want it — the fix is different for each."],
@@ -580,7 +619,7 @@ const KPI = [
 function Metrics() {
   const [open, setOpen] = useState<number | null>(null);
   return (
-    <Section id="metrics" n="04" eyebrow="Metrics" title="I think in terms of business and user outcomes." sub="Example product KPI framework for decision-making.">
+    <Section id="metrics" n="05" eyebrow="Metrics" title="I think in terms of business and user outcomes." sub="Example product KPI framework for decision-making.">
       <div className="reveal overflow-x-auto rounded-lg border border-line bg-white">
         <table className="w-full min-w-[820px] text-left">
           <thead>
@@ -624,7 +663,7 @@ const AREAS = ["Fintech", "Trading", "Investments", "Mutual Funds", "Onboarding"
 
 function Timeline() {
   return (
-    <Section id="progression" n="05" eyebrow="Progression" title="My Product Progression" tone="dark">
+    <Section id="progression" n="06" eyebrow="Progression" title="My Product Progression" tone="dark">
       <div className="reveal relative grid gap-10 md:grid-cols-4 md:gap-0">
         <div className="absolute left-[7px] top-2 bottom-2 w-px bg-paper/15 md:left-0 md:right-0 md:top-[7px] md:bottom-auto md:h-px md:w-auto" />
         <div className="absolute left-[7px] top-2 h-full w-px bg-gradient-to-b from-transparent to-sage-2 md:left-0 md:top-[7px] md:h-px md:w-full md:bg-gradient-to-r" />
@@ -651,7 +690,7 @@ function Timeline() {
 
 function About() {
   return (
-    <Section id="about" n="06" eyebrow="About" title="A product manager building products with a design perspective.">
+    <Section id="about" n="07" eyebrow="About" title="A product manager building products with a design perspective.">
       <div className="grid items-start gap-12 lg:grid-cols-[minmax(260px,0.85fr)_minmax(0,1.65fr)] lg:gap-16">
         <figure className="reveal relative mx-auto w-full max-w-[420px] lg:mx-0">
           <div className="absolute -bottom-3 -right-3 h-full w-full rounded-lg border border-sage/20 bg-sage-soft" aria-hidden="true" />
@@ -779,7 +818,7 @@ const CvLabel = ({ children }: { children: ReactNode }) => <p className="font-mo
 
 function Resume() {
   return (
-    <Section id="resume" n="07" eyebrow="Resume" title="Resume" tone="alt">
+    <Section id="resume" n="08" eyebrow="Resume" title="Resume" tone="alt">
       <div className="reveal rounded-lg border border-line bg-paper p-2">
         <div className="rounded-md border border-line bg-white p-6 sm:p-10 lg:p-12">
           {/* Header */}
@@ -876,7 +915,7 @@ function Contact() {
     <section id="contact" className="scroll-mt-16">
       <div className="mx-auto max-w-[1240px] px-6 py-28 lg:px-10 lg:py-40">
         <div className="reveal">
-          <Eyebrow n="08">Contact</Eyebrow>
+          <Eyebrow n="09">Contact</Eyebrow>
           <h2 className="mt-8 max-w-[900px] text-[44px] font-medium leading-[1.02] tracking-[-.035em] text-balance sm:text-[72px]">
             Have a product problem <span className="font-serif font-normal italic text-sage">worth solving?</span>
           </h2>
@@ -903,7 +942,7 @@ const Footer = () => (
 );
 
 function Home() {
-  return <><Hero /><Value /><Work /><Thinking /><Metrics /><Timeline /><About /><Resume /><Contact /></>;
+  return <><Hero /><Value /><Work /><Thinking /><AITools /><Metrics /><Timeline /><About /><Resume /><Contact /></>;
 }
 
 /* ───────────── Case study template ───────────── */
