@@ -651,10 +651,10 @@ function Metrics() {
 }
 
 const STAGES = [
-  ["Design", "Visual & interaction craft", "[Add years]"],
-  ["Product Design", "Journeys, systems, research", "[Add years]"],
-  ["Product Strategy", "Problem framing, roadmaps", "[Add years]"],
-  ["Product Management", "End-to-end ownership", "Now"],
+  ["Design", "Visual & interaction craft", "5 years"],
+  ["Product Design", "Journeys, systems, research", "3 years"],
+  ["Product Strategy", "Problem framing, roadmaps", "2 years"],
+  ["Product Management", "End-to-end ownership", "2 years"],
 ];
 const AREAS = ["Fintech", "Trading", "Investments", "Mutual Funds", "Onboarding", "Activation", "Product Strategy", "User Research", "Market Analysis", "Product Leadership", "Cross-functional execution"];
 
